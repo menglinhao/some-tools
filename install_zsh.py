@@ -4,6 +4,7 @@ import re
 
 
 os.system('yum -y install vim')
+os.system('yum -y install gcc')
 if not os.path.exists('~/.oh-my-zsh'):
     os.system('yum -y install zsh')
     os.system('git clone https://gitee.com/whereabouts-fork/ohmyzsh.git ~/.oh-my-zsh')
