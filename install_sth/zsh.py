@@ -18,7 +18,9 @@ new_plugins = "plugins=(git zsh-autosuggestions zsh-syntax-highlighting)"
 zsh_path = '/root/.zshrc'
 
 theme_pattern = r'ZSH_THEME=(.*)?\n'
-new_theme = 'ZSH_THEME="bureau"'
+# amuse 也不错 需要安装
+# dnf install powerline-fonts
+new_theme = 'ZSH_THEME="bureau"' 
 
 if os.path.exists(zsh_path):
     with open(zsh_path, mode='r+') as f:
