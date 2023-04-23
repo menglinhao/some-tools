@@ -3,17 +3,17 @@ import re
 
 # https://blog.csdn.net/MrKorbin/article/details/124777136?spm=1001.2014.3001.5506
 
-
 os.system('yum -y install vim')
 os.system('yum -y install gcc')
 if not os.path.exists('~/.oh-my-zsh'):
     os.system('yum -y install zsh')
-    os.system('git clone https://gitee.com/whereabouts-fork/ohmyzsh.git ~/.oh-my-zsh')
+    os.system('git clone https://gitee.com/Hey_friends/ohmyzsh.git ~/.oh-my-zsh')
+    os.system('cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc')
     # plugins
     os.system(
-        'git clone https://gitee.com/whereabouts-fork/zsh-autosuggestions.git ~/.oh-my-zsh//plugins/zsh-autosuggestions')
+        'git clone https://gitee.com/Hey_friends/zsh-autosuggestions.git ~/.oh-my-zsh//plugins/zsh-autosuggestions')
     os.system(
-        'git clone https://gitee.com/whereabouts-fork/zsh-syntax-highlighting.git ~/.oh-my-zsh//plugins/zsh-syntax-highlighting')
+        'git clone https://gitee.com/Hey_friends/zsh-syntax-highlighting.git ~/.oh-my-zsh//plugins/zsh-syntax-highlighting')
     os.system('cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc')
 
 plugins_pattern = r"plugins=\(git\)"
@@ -40,13 +40,4 @@ print("git ok")
 """ wsl 启用zsh默认
 vim ~/.bashrc
 bash -c zsh
-"""
-
-"""
-# vim ~/.zshrc
-# plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
-# source ~/.zshrc
-with open ('~/.zshrc', mode='w') as f:
-    res = f.read()
-    ..
 """
