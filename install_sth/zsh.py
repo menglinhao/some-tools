@@ -35,8 +35,7 @@ if os.path.exists(zsh_path):
 
         f.write(new_content)
 
-os.system(f'source {zsh_path}')
-print("git ok")
+print("终端输入 `zsh` 启用. ")
 """ wsl 启用zsh默认
 vim ~/.bashrc
 bash -c zsh
