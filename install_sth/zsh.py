@@ -1,12 +1,17 @@
 import os
 import re
+import subprocess
+
+install_tool = 'yum'
+sys_info = subprocess.run('cat /etc/os-release', shell=True, capture_output=True).stdout.decode()
+if 'Ubuntu' in sys_info:
+    install_tool = 'apt'
 
 # https://blog.csdn.net/MrKorbin/article/details/124777136?spm=1001.2014.3001.5506
-
-os.system('yum -y install vim')
-os.system('yum -y install gcc')
+os.system(f'{install_tool} -y install vim')
+os.system(f'{install_tool} -y install gcc')
 if not os.path.exists('~/.oh-my-zsh'):
-    os.system('yum -y install zsh')
+    os.system(f'{install_tool} -y install zsh')
     os.system('git clone https://gitee.com/Hey_friends/ohmyzsh.git ~/.oh-my-zsh')
     os.system('cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc')
     # plugins
