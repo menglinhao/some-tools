@@ -1,6 +1,13 @@
 import os
+import subprocess
 
-os.system('yum -y install python3-pip')
+res = subprocess.check_output('cat /etc/os-release', shell=True).decode()
+
+install_tool = 'yum'
+if 'Ubuntu' in res:
+    install_tool = 'apt'
+
+os.system(f'{install_tool} -y install python3-pip')
 pip_dir = '/root/.pip'
 pip_conf_path = '/root/.pip/pip.conf'
 download_ori_content = """[global]
@@ -13,5 +20,5 @@ if not os.path.exists(pip_conf_path):
     with open(pip_conf_path, mode='w+')as f:
         f.write(download_ori_content)
 else:
-    print('ok')
+    print('change pip ok')
 
