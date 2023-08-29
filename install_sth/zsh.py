@@ -37,7 +37,7 @@ if os.path.exists(zsh_path):
 
         new_content = re.sub(plugins_pattern, new_plugins, content)
         new_content = re.sub(theme_pattern, new_theme, new_content)
-
+        new_content += '\nDISABLE_UPDATE_PROMPT=true'  # 将环境变量DISABLE_UPDATE_PROMPT=true设置为始终答复是并自动升级。
         f.write(new_content)
 
 print("终端输入 `zsh` 启用. ")
