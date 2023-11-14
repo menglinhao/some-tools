@@ -1,9 +1,22 @@
 # /bin/bash
 
-yum install -y git
-mlh_dir=/root/mlh
-mkdir -p $mlh_dir
-git clone https://gitee.com/Hey_friends/some_tools.git $mlh_dir
 yum install -y python39
 ln -s /usr/bin/python3.9 /usr/bin/python39 
-cd $mlh_dir && python39 some_tools/install_sth/zsh.py
+yum install -y git
+
+repos=(
+    https://18539043730:Azby1334@codeup.aliyun.com/616f6e5b65b9775dd591f821/nslb/lbengine-agent.git
+    https://18539043730:Azby1334@codeup.aliyun.com/616f6e5b65b9775dd591f821/nslb/go-controller.git
+    https://18539043730:Azby1334@codeup.aliyun.com/616f6e5b65b9775dd591f821/nslb/go_healthcheck.git
+    https://gitee.com/Hey_friends/some_tools.git 
+)
+echo $repos
+mlh_dir=/root/mlh
+mkdir -p $mlh_dir
+cd $mlh_dir && \
+    for repo in "${repos[@]}"; do
+        git clone $repo
+    done
+    python39 some_tools/install_sth/zsh.py
+
+python39 alias.py
