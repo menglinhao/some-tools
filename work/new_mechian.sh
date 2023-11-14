@@ -19,4 +19,4 @@ cd $mlh_dir && \
     done
     python39 some_tools/install_sth/zsh.py
 
-python39 alias.py
+python39 /root/mlh/some_tools/work/alias.py  # 他娘的天才

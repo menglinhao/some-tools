@@ -9,8 +9,8 @@ docker_rmi_none = '''\nalias docker_rmi_none='docker rmi $(docker images -f "dan
 health_check_tail = (
     '\nalias health_check_tail="tail -f -n1000 /var/log/normae/health_check/health_check.log"'
 )
-go_controller_tail = (
-    '\nalias go_controller_tail="tail -f -n1000 /var/log/normae/controller/controller.log"'
+controller_tail = (
+    '\nalias controller_tail="tail -f -n1000 /var/log/normae/controller/controller.log"'
 )
 gin_tail = '\nalias gin_tail="tail -f -n1000 /var/log/normae/controller/gin.log"'
 gorm_tail = '\nalias gorm_tail="tail -f -n1000 /var/log/normae/controller/gorm.log"'
@@ -42,7 +42,7 @@ vim_lbagent_conf = (
 
 write_content_list = [
     fabric_mlh, fabric_deploy, slb_error_tail, slb_access_tail, lbagent_tail,
-    docker_rmi_none, health_check_tail, go_controller_tail, gin_tail, gorm_tail,
+    docker_rmi_none, health_check_tail, controller_tail, gin_tail, gorm_tail,
     vim_nginx_conf, vim_controller_conf, vim_normae_compose_yml, 
     vim_resty_json, vim_hc_server_node, vim_lbagent_conf, license_tail,
     help_test_tail,
