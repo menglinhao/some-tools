@@ -1,7 +1,8 @@
 # /bin/bash
 
 yum install -y python39
-ln -s /usr/bin/python3.9 /usr/bin/python39 
+ln -s /usr/bin/python3.9 /usr/bin/python39
+ln -s /usr/bin/python3.9 /usr/bin/python
 yum install -y git
 
 repos=(
@@ -20,3 +21,7 @@ cd $mlh_dir && \
     python39 some_tools/install_sth/zsh.py
 
 python39 /root/mlh/some_tools/work/alias.py  # 他娘的天才
+
+
+ssh-keygen
+authorized_keys
