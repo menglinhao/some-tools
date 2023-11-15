@@ -23,5 +23,5 @@ cd $mlh_dir && \
 python39 /root/mlh/some_tools/work/alias.py  # 他娘的天才
 
 
-ssh-keygen
-authorized_keys
+# ssh-keygen
+# authorized_keys
