@@ -40,8 +40,7 @@ if os.path.exists(zsh_path):
         new_content += '\nDISABLE_UPDATE_PROMPT=true'  # 将环境变量DISABLE_UPDATE_PROMPT=true设置为始终答复是并自动升级。
         f.write(new_content)
 
-print("终端输入 `zsh` 启用. ")
-""" wsl 启用zsh默认
-vim ~/.bashrc
-bash -c zsh
-"""
+print("""终端输入 `zsh` 启用. 
+chsh -s $(which zsh)  # 设置 zsh 默认shell
+""")
+
