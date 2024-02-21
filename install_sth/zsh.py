@@ -22,21 +22,23 @@ if not os.path.exists('~/.oh-my-zsh'):
     os.system('cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc')
 
 plugins_pattern = r"plugins=\(git\)"
-new_plugins = "plugins=(git zsh-autosuggestions zsh-syntax-highlighting)"
-zsh_path = '/root/.zshrc'
-
+plugins_str = "plugins=(git zsh-autosuggestions zsh-syntax-highlighting)"
 theme_pattern = r'ZSH_THEME=(.*)?\n'
+theme_str = 'ZSH_THEME="dst"'
+auto_update_pattern = r"# zstyle ':omz:update' mode auto"
+auto_update = r"zstyle ':omz:update' mode auto"
+
 # amuse 也不错 需要安装
 # dnf install powerline-fonts
 # new_theme = 'ZSH_THEME="bureau"'
-new_theme = 'ZSH_THEME="dst"'
 
+zsh_path = '/root/.zshrc'
 if os.path.exists(zsh_path):
     with open(zsh_path, mode='r+') as f:
         content = f.read()
-
-        new_content = re.sub(plugins_pattern, new_plugins, content)
-        new_content = re.sub(theme_pattern, new_theme, new_content)
+        new_content = re.sub(plugins_pattern, plugins_str, content)
+        new_content = re.sub(theme_pattern, theme_str, new_content)
+        new_content = re.sub(auto_update_pattern, auto_update, new_content)
         new_content += '\nDISABLE_UPDATE_PROMPT=true'  # 将环境变量DISABLE_UPDATE_PROMPT=true设置为始终答复是并自动升级。
         f.write(new_content)
 
